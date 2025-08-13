@@ -1,8 +1,4 @@
-import type { Order } from './types';
-
-export function wait(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+import type { Order } from "../types";
 
 export function mergeOrders(existing: Order[], incoming: Order[]): Order[] {
   const map = new Map<string, Order>();

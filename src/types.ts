@@ -3,4 +3,5 @@ export interface Order {
   name: string;
   createdAt: Date;
   price: number;
+  image: string;
 }

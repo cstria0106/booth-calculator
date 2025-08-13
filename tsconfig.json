@@ -7,7 +7,8 @@
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": []
   },
   "include": ["src"]
 }

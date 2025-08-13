@@ -6,13 +6,18 @@
   },
   "devDependencies": {
     "@types/papaparse": "^5.3.16",
-    "tsup": "^8.5.0",
-    "typescript": "^5.8.3",
+    "@types/react": "npm:@preact/compat@*",
+    "@types/react-dom": "npm:@preact/compat@*",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
     "papaparse": "^5.5.3",
     "preact": "^10.27.0",
-    "twind": "^0.16.19",
     "react": "npm:@preact/compat",
-    "react-dom": "npm:@preact/compat"
+    "react-dom": "npm:@preact/compat",
+    "terser": "^5.43.1",
+    "tsup": "^8.5.0",
+    "twind": "^0.16.19",
+    "typescript": "^5.8.3"
   },
   "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39"
 }

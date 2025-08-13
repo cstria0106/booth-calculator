@@ -1,27 +1,54 @@
-document.body.innerHTML = "";
+document.documentElement.innerHTML = "";
+
 import "twind/shim";
 
 import { render } from "preact";
-import { useState } from "preact/hooks";
-import { fetchOrders } from "./booth";
+import { useRef, useState } from "preact/hooks";
+import { App } from "./App";
 import type { Order } from "./types";
-import { App } from "./ui";
-import { mergeOrders } from "./utils";
+import { streamOrders } from "./utils/booth";
+import { mergeOrders } from "./utils/order";
 
 function Root() {
   const [orders, setOrders] = useState<Order[]>([]);
+  const [isFetching, setIsFetching] = useState(false);
+  const abortRef = useRef<AbortController | null>(null);
 
   async function handleFetch() {
+    if (isFetching) return;
     const existing = new Set(orders.map((o) => o.id));
-    const fetched = await fetchOrders(existing);
-    setOrders((prev) => mergeOrders(prev, fetched));
+    const controller = new AbortController();
+    abortRef.current = controller;
+    setIsFetching(true);
+    try {
+      for await (const order of streamOrders(existing, {
+        signal: controller.signal,
+      })) {
+        setOrders((prev) => mergeOrders(prev, [order]));
+      }
+    } finally {
+      setIsFetching(false);
+      abortRef.current = null;
+    }
+  }
+
+  function handleCancel() {
+    abortRef.current?.abort();
   }
 
   function handleImport(list: Order[]) {
     setOrders((prev) => mergeOrders(prev, list));
   }
 
-  return <App orders={orders} onFetch={handleFetch} onImport={handleImport} />;
+  return (
+    <App
+      orders={orders}
+      onFetch={handleFetch}
+      onCancel={handleCancel}
+      isFetching={isFetching}
+      onImport={handleImport}
+    />
+  );
 }
 
 render(<Root />, document.body);
