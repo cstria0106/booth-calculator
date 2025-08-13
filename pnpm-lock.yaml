@@ -7,23 +7,28 @@ settings:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
+      '@types/papaparse':
+        specifier: ^5.3.16
+        version: 5.3.16
       papaparse:
         specifier: ^5.5.3
         version: 5.5.3
       preact:
         specifier: ^10.27.0
         version: 10.27.0
-      twind:
-        specifier: ^0.16.19
-        version: 0.16.19(typescript@5.8.3)
-    devDependencies:
-      '@types/papaparse':
-        specifier: ^5.3.16
-        version: 5.3.16
+      react:
+        specifier: npm:@preact/compat
+        version: '@preact/compat@18.3.1(preact@10.27.0)'
+      react-dom:
+        specifier: npm:@preact/compat
+        version: '@preact/compat@18.3.1(preact@10.27.0)'
       tsup:
         specifier: ^8.5.0
         version: 8.5.0(tsx@4.19.4)(typescript@5.8.3)
+      twind:
+        specifier: ^0.16.19
+        version: 0.16.19(typescript@5.8.3)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -205,6 +210,11 @@ packages:
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
+
+  '@preact/compat@18.3.1':
+    resolution: {integrity: sha512-Kog4PSRxtT4COtOXjsuQPV1vMXpUzREQfv+6Dmcy9/rMk0HOPK0HTE9fspFjAmY8R80T/T8gtgmZ68u5bOSngw==}
+    peerDependencies:
+      preact: '*'
 
   '@rollup/rollup-android-arm-eabi@4.41.1':
     resolution: {integrity: sha512-NELNvyEWZ6R9QMkiytB4/L4zSEaBC03KIXEghptLGLZWJ6VPrL63ooZQCOnlx36aQPGhzuOMwDerC1Eb2VmrLw==}
@@ -812,6 +822,10 @@ snapshots:
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
+
+  '@preact/compat@18.3.1(preact@10.27.0)':
+    dependencies:
+      preact: 10.27.0
 
   '@rollup/rollup-android-arm-eabi@4.41.1':
     optional: true

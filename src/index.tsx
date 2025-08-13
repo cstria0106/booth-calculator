@@ -1,10 +1,12 @@
-import 'twind/shim';
-import { render } from 'preact';
-import { useState } from 'preact/hooks';
-import { fetchOrders } from './booth';
-import { mergeOrders } from './utils';
-import type { Order } from './types';
-import { App } from './ui';
+document.body.innerHTML = "";
+import "twind/shim";
+
+import { render } from "preact";
+import { useState } from "preact/hooks";
+import { fetchOrders } from "./booth";
+import type { Order } from "./types";
+import { App } from "./ui";
+import { mergeOrders } from "./utils";
 
 function Root() {
   const [orders, setOrders] = useState<Order[]>([]);
@@ -23,4 +25,3 @@ function Root() {
 }
 
 render(<Root />, document.body);
-

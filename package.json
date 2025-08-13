@@ -7,12 +7,12 @@
   "devDependencies": {
     "@types/papaparse": "^5.3.16",
     "tsup": "^8.5.0",
-    "typescript": "^5.8.3"
-  },
-  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39",
-  "dependencies": {
+    "typescript": "^5.8.3",
     "papaparse": "^5.5.3",
     "preact": "^10.27.0",
-    "twind": "^0.16.19"
-  }
+    "twind": "^0.16.19",
+    "react": "npm:@preact/compat",
+    "react-dom": "npm:@preact/compat"
+  },
+  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39"
 }
