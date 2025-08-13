@@ -13,6 +13,6 @@
   "dependencies": {
     "papaparse": "^5.5.3",
     "preact": "^10.27.0",
-    "preact-material-components": "1.6.1"
+    "twind": "^0.16.19"
   }
 }

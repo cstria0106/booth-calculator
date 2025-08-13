@@ -7,7 +7,6 @@ export default defineConfig({
   minify: true,
   treeshake: true,
   splitting: false,
-  injectStyle: true,
   outDir: "dist",
-  noExternal: ['preact-material-components'],
+  noExternal: ["preact", "papaparse", "twind"],
 });
