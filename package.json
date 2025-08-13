@@ -1,7 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "build": "tsup src/index.ts --format esm --dts --out-dir dist"
+    "build": "tsup src/index.ts --format esm --dts --out-dir dist",
+    "check": "tsc --noEmit"
   },
   "devDependencies": {
     "tsup": "^8.5.0",
