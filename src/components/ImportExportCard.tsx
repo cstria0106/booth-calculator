@@ -1,4 +1,5 @@
 import { useRef } from "preact/hooks";
+import { useToast } from "../toast";
 import type { Order } from "../types";
 import { csvToOrders, ordersToCSV } from "../utils/csv";
 
@@ -6,6 +7,7 @@ type Props = { onImport: (orders: Order[]) => void; orders: Order[] };
 
 export function ImportExportCard({ onImport, orders }: Props) {
   const fileRef = useRef<HTMLInputElement>(null);
+  const toast = useToast();
 
   function handleSave() {
     const csv = ordersToCSV(orders);
@@ -30,6 +32,7 @@ export function ImportExportCard({ onImport, orders }: Props) {
   async function handleFile(file: File) {
     const text = await readFileAsText(file);
     onImport(csvToOrders(text));
+    toast.success("CSV 불러오기 완료!");
   }
 
   function onDrop(e: DragEvent) {

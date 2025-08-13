@@ -150,7 +150,13 @@ export function App({
 
       {tab === 1 && (
         <section className="space-y-4">
-          <ImportExportCard onImport={onImport} orders={orders} />
+          <ImportExportCard
+            onImport={(orders) => {
+              setTab(0);
+              onImport(orders);
+            }}
+            orders={orders}
+          />
         </section>
       )}
     </div>

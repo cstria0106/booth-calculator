@@ -7,7 +7,11 @@ export function OrderRow({ o, toKRW }: Props) {
   const krw = toKRW(o.price);
   return (
     <div className="flex justify-between items-center p-3 sm:p-4 gap-3">
-      <div className="flex items-center gap-3 min-w-0">
+      <a
+        className="flex items-center gap-3 min-w-0 hover:underline"
+        href={`https://accounts.booth.pm/orders/${o.id}`}
+        target="_blank"
+      >
         <img src={o.image} alt={o.name} className="h-10 w-10 rounded-full" />
         <div className="min-w-0">
           <div
@@ -20,7 +24,7 @@ export function OrderRow({ o, toKRW }: Props) {
             {o.createdAt.toISOString().split("T")[0]}
           </div>
         </div>
-      </div>
+      </a>
       <div className="text-right whitespace-nowrap">
         <div className="font-semibold tabular-nums">
           {fmtJPY.format(o.price)}
